@@ -8,11 +8,11 @@ const Banner = (props) => {
   const handleQueryChange = (value) => {
 
     if (value?.length >= 3) {
-      // props.onSearchTitle(value)
+      props.onSearchResult(value)
     } else if (value?.length === 0) {
+      props.onSearchResult("")
     }
     props.onSearchTitle(value)
-
   }
   return (
     <div className="banner text-white">
@@ -37,7 +37,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    onSearchTitle: (title) => dispatch({ type: CHANGE_SEARCH_TITLE, payload: agentObj.Items.byTitle(title), title })
+    onSearchTitle: (title) => dispatch({ type: CHANGE_SEARCH_TITLE, title }),
+    onSearchResult: (title) => dispatch({ type: CHANGE_SEARCH_TITLE, payload: agentObj.Items.byTitle(title), title })
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Banner);

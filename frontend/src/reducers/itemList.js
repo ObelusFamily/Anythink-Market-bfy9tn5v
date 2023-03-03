@@ -62,6 +62,7 @@ const reducer = (state = {}, action) => {
     case CHANGE_SEARCH_TITLE: 
       return {
         ...state,
+        title: action.title,
         items: action.payload.items,
         itemsCount: action.payload.itemsCount
       }

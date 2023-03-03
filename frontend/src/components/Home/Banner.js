@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import logo from "../../imgs/logo.png";
 import { CHANGE_SEARCH_TITLE  } from '../../constants/actionTypes'
 import { connect } from "react-redux";
 import agentObj from "../../agent";
 const Banner = (props) => {
-  const [queryTitle, setQueryTitle] = useState("");
+  const queryTitle = props.title;
   const handleQueryChange = (value) => {
-    if(queryTitle.length)
     if (value?.length >= 3) {
       props.onSearchTitle(value)
     } else if (value?.length === 0) {
       props.onSearchTitle('')
-
     }
-    setQueryTitle(value)
   }
   return (
     <div className="banner text-white">
@@ -38,7 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    onSearchTitle: (title) => dispatch({ type: CHANGE_SEARCH_TITLE, payload: agentObj.Items.byTitle(title)})
+    onSearchTitle: (title) => dispatch({ type: CHANGE_SEARCH_TITLE, payload: agentObj.Items.byTitle(title), title })
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Banner);

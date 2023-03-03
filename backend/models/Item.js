@@ -8,7 +8,7 @@ var ItemSchema = new mongoose.Schema(
     slug: { type: String, lowercase: true, unique: true },
     title: {type: String, required: [true, "can't be blank"]},
     description: {type: String, required: [true, "can't be blank"]},
-    image: String,
+    image: { type: String, default: "./placeholder.png" } ,
     favoritesCount: { type: Number, default: 0 },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     tagList: [{ type: String }],
@@ -47,7 +47,7 @@ ItemSchema.methods.updateFavoriteCount = function() {
 ItemSchema.methods.toJSONFor = function(user) {
   return {
     slug: this.slug,
-    title: this.title || "./placeholder.png",
+    title: this.title,
     description: this.description,
     image: this.image,
     createdAt: this.createdAt,

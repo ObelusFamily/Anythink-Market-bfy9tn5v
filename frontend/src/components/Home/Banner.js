@@ -6,11 +6,13 @@ import agentObj from "../../agent";
 const Banner = (props) => {
   const queryTitle = props.title;
   const handleQueryChange = (value) => {
+
     if (value?.length >= 3) {
-      props.onSearchTitle(value)
+      // props.onSearchTitle(value)
     } else if (value?.length === 0) {
-      props.onSearchTitle('')
     }
+    props.onSearchTitle(value)
+
   }
   return (
     <div className="banner text-white">

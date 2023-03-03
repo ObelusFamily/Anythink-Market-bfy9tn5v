@@ -22,7 +22,7 @@ const Banner = (props) => {
         <div>
           <span>A place to </span>
           <span id="get-part">get</span>
-          <input value={queryTitle} onChange={e => {
+          <input id="search-box" value={queryTitle} onChange={e => {
             handleQueryChange(e.target.value)
           }} />
           <span> the cool stuff.</span>

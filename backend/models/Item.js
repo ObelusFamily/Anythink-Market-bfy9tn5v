@@ -8,7 +8,7 @@ var ItemSchema = new mongoose.Schema(
     slug: { type: String, lowercase: true, unique: true },
     title: {type: String, required: [true, "can't be blank"]},
     description: {type: String, required: [true, "can't be blank"]},
-    image: { type: String, default: "./placeholder.png" } ,
+    image: String,
     favoritesCount: { type: Number, default: 0 },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
     tagList: [{ type: String }],

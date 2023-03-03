@@ -87,7 +87,6 @@ const MainView = (props) => {
       </div>
 
       <ItemList
-        title={props.title}
         pager={props.pager}
         items={props.items}
         loading={props.loading}
